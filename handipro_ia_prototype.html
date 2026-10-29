@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101b35">
+<title>HANDIPRO IA — Prototype</title>
+<style>
+:root{--bg:#0b1224;--panel:#141f39;--panel2:#1b2948;--text:#f3f6ff;--muted:#aab6d2;--accent:#39d6a2;--gold:#ffd166;--line:#2a395c}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#111d38);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{padding:22px 18px 18px;background:#101b35;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
+.brand{font-weight:900;letter-spacing:1px;font-size:22px}.brand span{color:var(--accent)}.sub{color:var(--muted);font-size:12px;margin-top:5px}
+nav{display:flex;gap:8px;padding:12px 14px;background:#0d172d;position:sticky;top:76px;z-index:2}
+nav button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:11px 4px;border-radius:12px;font-weight:700}
+nav button.active{background:var(--accent);color:#07152a;border-color:var(--accent)}
+main{padding:16px;max-width:650px;margin:auto}.hero{background:linear-gradient(135deg,#173c52,#1a294a);padding:20px;border:1px solid #2b6071;border-radius:18px;margin-bottom:16px}
+h1{font-size:24px;margin:0 0 8px}.hero p{margin:0;color:#d1e2f6;line-height:1.45;font-size:14px}
+.pill{display:inline-block;background:#193c3a;color:#9ef4d8;border:1px solid #2c7563;border-radius:99px;padding:6px 10px;font-size:11px;font-weight:bold;margin-bottom:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.league{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+.teams{font-size:17px;font-weight:800;line-height:1.35;margin:10px 0}.time{color:var(--muted);font-size:12px}
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.prob{background:var(--panel2);border-radius:10px;padding:10px 4px;text-align:center}.prob strong{display:block;font-size:19px;color:var(--accent)}.prob span{font-size:10px;color:var(--muted)}
+button.primary{background:var(--accent);color:#07152a;border:0;padding:13px 16px;border-radius:12px;font-weight:800;width:100%;margin-top:12px;font-size:14px}
+button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line);padding:11px 14px;border-radius:10px;font-weight:700}
+.note{font-size:12px;line-height:1.5;color:var(--muted)}.warning{border-left:3px solid var(--gold);padding:10px 12px;background:#302b22;color:#ffe6a3;border-radius:6px;font-size:12px;line-height:1.5;margin:12px 0}
+.price{font-size:34px;font-weight:900;margin:8px 0}.price small{font-size:14px;color:var(--muted);font-weight:500}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.method{padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);font-size:13px}
+.hidden{display:none!important}.toast{padding:12px;border-radius:10px;background:#203d36;color:#b7ffe6;margin-top:12px;font-size:13px;line-height:1.4}
+footer{text-align:center;color:#7180a0;font-size:11px;padding:20px 16px 30px}
+input{width:100%;padding:12px;background:#0e1830;border:1px solid var(--line);border-radius:10px;color:white;margin:8px 0 4px}
+</style>
+</head>
+<body>
+<header><div class="brand">HANDI<span>PRO</span> IA</div><div class="sub">Assistant de pronostics handball • Prototype mobile</div></header>
+<nav>
+<button class="active" data-tab="home">Accueil</button>
+<button data-tab="matches">Matchs</button>
+<button data-tab="vip">Accès VIP</button>
+</nav>
+<main>
+<section id="home">
+<div class="hero"><span class="pill">VERSION DE TEST</span><h1>Analysez avant de pronostiquer.</h1><p>Une interface simple pour consulter des estimations de matchs de handball. Les données affichées ici sont fictives : elles ne représentent pas de vrais matchs ni un modèle prédictif validé.</p></div>
+<div class="card"><div class="row"><div><div class="league">Votre objectif</div><div class="teams">Des analyses plus claires</div></div><span style="font-size:28px">🤾</span></div><p class="note">HANDIPRO IA est conçu pour les utilisateurs au Burkina Faso. La version de démonstration permet de tester la navigation et le parcours VIP sans paiement réel.</p><button class="primary" onclick="showTab('matches')">Voir les matchs de démonstration</button></div>
+<div class="warning"><strong>Important :</strong> aucun pronostic n'est sûr. Les probabilités ne garantissent pas un gain et ne doivent pas être présentées comme un taux de réussite de 80 % sans tests réels suffisants.</div>
+</section>
+<section id="matches" class="hidden">
+<div class="hero"><span class="pill">EXEMPLES FICTIFS</span><h1>Matchs & estimations</h1><p>Ces exemples servent uniquement à tester l'affichage de l'application.</p></div>
+<div class="card"><div class="row"><span class="league">Match démo 01</span><span class="time">Exemple • 18h00</span></div><div class="teams">Équipe A <span style="color:var(--muted)">vs</span> Équipe B</div><div class="probs"><div class="prob"><strong>46%</strong><span>Victoire A</span></div><div class="prob"><strong>12%</strong><span>Match nul</span></div><div class="prob"><strong>42%</strong><span>Victoire B</span></div></div><p class="note">Estimation fictive — aucune donnée sportive réelle utilisée.</p></div>
+<div class="card"><div class="row"><span class="league">Match démo 02</span><span class="time">Exemple • 20h30</span></div><div class="teams">Équipe C <span style="color:var(--muted)">vs</span> Équipe D</div><div class="probs"><div class="prob"><strong>61%</strong><span>Victoire C</span></div><div class="prob"><strong>9%</strong><span>Match nul</span></div><div class="prob"><strong>30%</strong><span>Victoire D</span></div></div><p class="note">Estimation fictive — à remplacer par des données vérifiées et un modèle testé.</p></div>
+<button class="primary" onclick="showTab('vip')">Découvrir l'accès VIP</button>
+</section>
+<section id="vip" class="hidden">
+<div class="hero"><span class="pill">OFFRE ENVISAGÉE</span><h1>Accès VIP à vie</h1><p>Prix envisagé pour le lancement au Burkina Faso. Le paiement n'est pas connecté dans cette maquette.</p><div class="price">2 400 <small>FCFA • une seule fois</small></div></div>
+<div class="card"><h3 style="margin-top:0">Moyens de paiement prévus</h3><div class="methods"><div class="method">🟠 Orange Money</div><div class="method">🔵 Moov Money / MobiCash</div><div class="method">🔴 Telecel Money</div><div class="method">🔐 Vérification du paiement</div></div><p class="note">Les numéros marchands et la confirmation automatique restent à configurer. Ne versez pas d'argent sur un numéro affiché par cette maquette : aucun numéro de paiement n'est fourni.</p><button class="primary" onclick="document.getElementById('demoMsg').classList.remove('hidden')">Tester le parcours d'abonnement</button><div id="demoMsg" class="toast hidden">Test réussi : vous avez parcouru l'écran d'abonnement. Aucun paiement n'a été effectué et aucun accès VIP réel n'a été activé.</div></div>
+<div class="warning"><strong>Avant une vraie vente :</strong> il faudra des données de matchs fiables, tester les estimations sur des résultats passés, puis intégrer un système de paiement qui confirme réellement les transactions.</div>
+</section>
+</main>
+<footer>HANDIPRO IA • Maquette de démonstration • Pas de données en direct, pas de paiement réel.</footer>
+<script>
+function showTab(tab){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(tab).classList.remove('hidden');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+</script>
+</body></html>
